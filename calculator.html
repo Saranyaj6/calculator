@@ -1,117 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculator</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-
-  <body>
-    <div class="app">
-      <div class="calculator">
-
-
-        <div class="display">
-          <div class="content">
-
-            <div class="input"></div>
-            <div class="output"></div>
-
-          </div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>calculator</title>
+</head>
+<body>
+    <div class="container">
+        <div class="calculator" onmouseenter="addCharacter(display.value)">
+            <form>
+                <div class="display">
+                    <!-- display the result of the calculator -->
+                    <input type="text" name="display" disabled>
+                </div>
+    
+                <div>
+                    <input type="button" value="AC" onclick="display.value =''" class="operation-btn">
+                    <input type="button" value="DE" onclick="display.value = display.value.toString().slice(0,-1)" class="operation-btn">
+                    <input type="button" value="+/-" class="operation-btn" onclick="togglesign(display.value)">
+                    <input type="button" value="/" onclick="frontOperator(display.value,'/')" class="operation-btn">
+                </div>
+                <div>
+                   <!-- onclick function to display the number on text area  -->
+                    <input type="button" value="7" onclick="display.value +='7'" id="nos">
+                    <input type="button" value="8" onclick="display.value +='8'" id="nos">
+                    <input type="button" value="9" onclick="display.value +='9'" id="nos">
+                    <input type="button" value="*" onclick="frontOperator(display.value,'*')" class="operation-btn">
+                </div>
+                <div>
+                    <input type="button" value="4" onclick="display.value +='4'" id="nos">
+                    <input type="button" value="5" onclick="display.value +='5'" id="nos">
+                    <input type="button" value="6" onclick="display.value +='6'" id="nos">
+                    <input type="button" value="-" onclick="frontOperator(display.value,'-')" class="operation-btn">
+                </div>
+                <div>
+                    <input type="button" value="1" onclick="display.value +='1'" id="nos">
+                    <input type="button" value="2" onclick="display.value +='2'" id="nos">
+                    <input type="button" value="3" onclick="display.value +='3'" id="nos">
+                    <input type="button" value="+" onclick="frontOperator(display.value,'+')" class="operation-btn">
+                </div>
+                <div>
+                    <input type="button" value="%" onclick="calculatePercentage(display.value)" id="nos">
+                    <input type="button" value="0" onclick="display.value +='0'" id="nos">
+                    <input type="button" value="." onclick="display.value +='.'" id="nos">
+                    <input type="button" value="=" onclick="display.value = eval(display.value)" class="operation-btn">
+                    
+                </div>
+            </form>
         </div>
-
-        
-        <div class="keys">
-          <div data-key="clear" class="key action">
-            <span>AC</span>
-          </div>
-
-
-
-
-          <div data-key="backspace" class="key action">
-            <span>&lt;</span>
-          </div>
-
-          <div data-key="brackets" class="key action">
-            <span>( )</span>
-          </div>
-
-          
-
-          <div data-key="/" class="key operator">
-            <span>÷</span>
-          </div>
-
-          <div data-key="7" class="key">
-            <span>7</span>
-          </div>
-
-          <div data-key="8" class="key">
-            <span>8</span>
-          </div>
-
-          <div data-key="9" class="key">
-            <span>9</span>
-          </div>
-
-          <div data-key="*" class="key operator">
-            <span>x</span>
-          </div>
-
-          <div data-key="4" class="key">
-            <span>4</span>
-          </div>
-
-          <div data-key="5" class="key">
-            <span>5</span>
-          </div>
-
-          <div data-key="6" class="key">
-            <span>6</span>
-          </div>
-
-          <div data-key="-" class="key operator">
-            <span>-</span>
-          </div>
-
-          <div data-key="1" class="key">
-            <span>1</span>
-          </div>
-
-          <div data-key="2" class="key">
-            <span>2</span>
-          </div>
-
-          <div data-key="3" class="key">
-            <span>3</span>
-          </div>
-
-          <div data-key="+" class="key operator">
-            <span>+</span>
-          </div>
-
-          <div data-key="%" class="key action">
-            <span>%</span>
-          </div>
-
-          <div data-key="0" class="key">
-            <span>0</span>
-          </div>
-
-          <div data-key="." class="key">
-            <span>.</span>
-          </div>
-
-          <div data-key="=" class="key operator">
-            <span>=</span>
-          </div>
-        </div>
-      </div>
     </div>
-
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
